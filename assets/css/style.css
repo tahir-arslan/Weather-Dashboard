@@ -1,6 +1,6 @@
 body {
     margin: 0;
-    background-color: gainsboro;
+    background-color: white;
 }
 
 h1 {
@@ -48,30 +48,12 @@ p {
     margin-top: 16px;
 }
 
-
-/* makes the dependency strict on first level*/
-
-
-/*On 11/4/20 found on https://flaviocopes.com/css-selectors */
-
-
-/* since I didn't know how to select certain elements*/
-
 .searchHistoryContainer>button {
     width: 100%;
     background-color: transparent;
     border: none;
     border-bottom: 1px solid gray;
 }
-
-
-/* represents the last element among a group of sibling elements*/
-
-
-/* On 11/4/20 found on https://developer.mozilla.org/en-US/docs/Web/CSS/:last-child*/
-
-
-/* since I didn't know how to select certain elements */
 
 .searchHistoryContainer>button:last-child {
     border: none;

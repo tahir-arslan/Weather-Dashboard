@@ -72,8 +72,7 @@ $(document).ready(function() {
                     url: query2URL,
                     method: "GET",
                 }).then(function(uvExtendedData) {
-                    //create weatherIcon variable to display the weather icon from One Call API - uvExtendedData.current.weather[0].icon
-                    //+ "https://openweathermap.org/img/wn/" (the URL for the Open Weather weather icon images)
+                    // create weather icon from "https://openweathermap.org/img/wn/"
                     let weatherIcon = uvExtendedData.current.weather[0].icon;
                     let iconURL = "https://openweathermap.org/img/wn/" + weatherIcon + ".png";
                     //create todaysForecastContainer (container with appended divs)
@@ -81,65 +80,33 @@ $(document).ready(function() {
                     $("#right-col").append(
                         '<div class="todaysForecastContainer"></div>'
                     );
-                    //append divs to todaysForecastContainer to display current queried city name and weather icon, current date, humdity, wind speed and
-                    //uvi index from query1URL AJAX call
                     $(".todaysForecastContainer").append(
                         `<h2 class="currentCity">${
-            data.name
-            //moment.unix() to format dt unix
-            } <span class="currentCityDate">(${moment
-            .unix(uvExtendedData?.current?.dt)
-            .format(
-                "M/DD/YYYY"
-            )})</span> <img id="weatherIcon" src="${iconURL}"/></h2>`
+                        data.name
+                        //moment.unix() to format dt unix
+                        } <span class="currentCityDate">(${moment.unix(uvExtendedData?.current?.dt).format("M/DD/YYYY")})</span>
+                        <img id="weatherIcon" src="${iconURL}"/></h2>`
                     );
-
-                    $(".todaysForecastContainer").append(
-                        `<p class="currentCityTemp">Temperature: ${
-            uvExtendedData.current.temp + " &deg;F"
-            }</p>`
-                    );
-
-                    $(".todaysForecastContainer").append(
-                        `<p class="currentCityHumidity">Humidity: ${
-            uvExtendedData.current.humidity + "%"
-            }</p>`
-                    );
-
-                    $(".todaysForecastContainer").append(
-                        `<p class="currentCityWindSpeed">Wind Speed: ${
-            uvExtendedData.current.wind_speed + " MPH"
-            }</p>`
-                    );
-
-                    $(".todaysForecastContainer").append(
-                        `<p>
-            UV Index:
-            <span class="${uivClassName(uvExtendedData.current.uvi)}"
-            >${uvExtendedData.current.uvi}</span
-            >
-        </p>`
-                    );
-                    //append divs to multiForecastContainer y
+                    $(".todaysForecastContainer").append(`<p class="currentCityTemp">Temperature: ${uvExtendedData.current.temp + " &deg;F"}</p>`);
+                    $(".todaysForecastContainer").append(`<p class="currentCityHumidity">Humidity: ${uvExtendedData.current.humidity + "%"}</p>`);
+                    $(".todaysForecastContainer").append(`<p class="currentCityWindSpeed">Wind Speed: ${uvExtendedData.current.wind_speed + " MPH"}</p>`);
+                    $(".todaysForecastContainer").append(`<p>UV Index:<span class="${uivClassName(uvExtendedData.current.uvi)}">${uvExtendedData.current.uvi}</span></p>`);
+                    // append divs to multiForecastContainer
                     $("#right-col").append('<div class="multiForecastContainer"></div>');
                     $(".multiForecastContainer").append("<h2>5-Day Forecast:</h2>");
-                    $(".multiForecastContainer").append(
-                        '<div class="forecastCardsContainer"></div>'
-                    );
-                    //.map to display current queried city's 5 Day Forecast: date, weather icon, temperature and humidity
+                    $(".multiForecastContainer").append('<div class="forecastCardsContainer"></div>');
+                    // .map to display current queried city's 5 Day Forecast: date, weather icon, temperature and humidity
                     uvExtendedData.daily.map((day, index) => {
                         if (index > 0 && index < 6) {
                             $(".forecastCardsContainer").append(
-                                `
-                <div class="forecastCard" id="{'card' + index}">
-                    <h3>${moment.unix(day.dt).format("M/DD/YYYY")}</h3>
-                    <div><img id="weatherIcon" src="https://openweathermap.org/img/wn/${
-                    day.weather[0].icon
-                    }.png"/></div>
-                    <p>Temp: ${day.temp.day + " &deg;F"}</p>
-                    <p>Humidity: ${day.humidity + "%"}</p>
-                </div>
-                `
+                                `<div class="forecastCard" id="{'card' + index}">
+                                    <h3>${moment.unix(day.dt).format("M/DD/YYYY")}</h3>
+                                    <div>
+                                        <img id="weatherIcon" src="https://openweathermap.org/img/wn/${day.weather[0].icon}.png"/>
+                                    </div>
+                                    <p>Temp: ${day.temp.day + " &deg;F"}</p>
+                                    <p>Humidity: ${day.humidity + "%"}</p>
+                                </div>`
                             );
                         }
                     });
