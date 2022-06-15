@@ -1,8 +1,7 @@
+var inputCity = [""];
 var apiKey = "de107e5570d600069ddff98bb569bca2";
 var city = "toronto";
 var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + apiKey;
-
-
 
 fetch(queryURL)
 
@@ -20,6 +19,7 @@ $(document).ready(function() {
     // Manipulate city input and react on click
     $("#search-btn").on("click ", function(event) {
         event.preventDefault();
+        createQuery();
         var inputCity = $("#input-city").val();
         // get list of cities from localStorage, create empty array if data does not exist
         let cityArray = JSON.parse(localStorage.getItem("inputCity")) || [];
@@ -36,19 +36,19 @@ $(document).ready(function() {
         // get history from localStorage
         let cityHistory = JSON.parse(localStorage.getItem("inputCity"));
         //if search history doesn't exist, then create .searchHistoryContainer
-        if (!$(".searchHistoryContainer").length && cityHistory.length) {
-            $("#history").append('<div class="searchHistoryContainer"></div>');
+        if (!$("#history").length && cityHistory.length) {
+            $(".searchColumn").append('<div class="searchHistoryContainer"></div>');
         }
         //clear history
-        $(".searchHistoryContainer").html("");
+        $("#history").html("");
         //for loop to generate history
         for (let cityCounter = 0; cityCounter < cityHistory.length; cityCounter++) {
             let city = cityHistory[cityCounter];
-            $(".searchHistoryContainer").append(
-                `<button id="CityBtn${cityCounter}">${city}</button>`
+            $("#history").append(
+                `<button class="w-full bg-gray-400 my-1 rounded" id="CityBtn${cityCounter}">${city}</button>`
             );
             // display information by clicking on city from history
-            $(".searchHistoryContainer").on("click", `#CityBtn${cityCounter}`, function() {
+            $("#history").on("click", `#CityBtn${cityCounter}`, function() {
                 createQuery(city);
                 localStorage.setItem("city", JSON.stringify(city));
             });

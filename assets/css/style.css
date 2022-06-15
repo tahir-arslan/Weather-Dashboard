@@ -3,70 +3,13 @@ body {
     background-color: white;
 }
 
-h1 {
-    margin: 0;
-    padding: 16px;
-    text-align: center;
-    background-color: #353535;
-    color: white;
-    font-family: sans-serif;
-}
 
-.handleCitySearch {
-    background-color: rgb(73, 133, 237);
-}
-
-h2 {
-    font-size: 20px;
-}
-
-h3 {
-    font-size: 12px;
-    font-weight: bold;
-}
-
-p {
-    font-size: 12px;
-}
-
-.flexContainer {
-    display: flex;
-    max-width: 950px;
-    margin: auto;
-}
-
-.searchColumn {
-    padding: 16px;
-    width: 200px;
-    border: 1 solid gray;
-}
-
-.searchColumn .searchHistoryContainer {
-    background-color: #e1e1e1;
-    border: 1px solid gray;
-    border-radius: 4px;
-    margin-top: 16px;
-}
-
-.searchHistoryContainer>button {
+/* #history>button {
     width: 100%;
     background-color: transparent;
     border: none;
     border-bottom: 1px solid gray;
-}
-
-.searchHistoryContainer>button:last-child {
-    border: none;
-}
-
-.searchColumn>input {
-    width: 132px;
-}
-
-.reportColumn {
-    padding: 16px;
-    flex: 1;
-}
+} */
 
 .todaysForecastContainer {
     padding: 16px;

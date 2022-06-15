@@ -12,19 +12,19 @@
     <title>Weather Dashboard</title>
 </head>
 
-<body class="container mx-auto shadow-lg m-4 rounded border-2">
+<body class="container mx-auto shadow-lg m-4 rounded border-2 p-2">
     <header>
-        <h1 class="text-center p-2 bg-yellow-400"> Weather Dashboard</h1>
+        <h1 class="text-center p-2 bg-blue-500 rounded font-bold text-white"> Weather Dashboard</h1>
     </header>
-    <div class="flex grid grid-cols-5 gap-4">
-        <div class="flex-auto rounded border-2 col-span-2" id="left-col">
-            <div class="bg-red-400">
-                <h2>Search for a City:</h2>
-                <input type="text" id="input-city" placeholder="Type in City Name"></input> <br>
-                <button id="search-btn">Search</button>
+    <div class="flex grid grid-cols-5 gap-4 py-1">
+        <div class="flex-auto col-span-2 leading-6" id="left-col">
+            <div>
+                <h2 class="font-bold">Search for a City:</h2>
+                <input type="text" class="w-full rounded border px-1 my-1" id="input-city" placeholder="Toronto"></input> <br>
+                <button class="w-full rounded bg-sky-500 mt-1 mb-2 border text-white" id="search-btn">Search</button>
             </div>
-            <div class="bg-red-500" id="history">
-                <p>Past search history</p>
+            <div class="border-t-2 pt-1 w-full" id="history">
+                <p>Past search history:</p>
             </div>
         </div>
         <div class="flex-auto rounded border-2 col-span-3" id="right-col">
