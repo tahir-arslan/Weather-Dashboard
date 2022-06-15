@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/css/open-iconic-bootstrap.min.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <title>Weather Dashboard</title>
+</head>
+
+<body class="container mx-auto shadow-lg m-4 rounded border-2">
+    <header>
+        <h1 class="text-center p-2 bg-yellow-400"> Weather Dashboard</h1>
+    </header>
+    <div class="flex grid grid-cols-5 gap-4">
+        <div class="flex-auto rounded border-2 col-span-2" id="left-col">
+            <div class="bg-red-400">
+                <h2>Search for a City:</h2>
+                <input type="text" id="input-city" placeholder="Type in City Name"></input> <br>
+                <button id="search-btn">Search</button>
+            </div>
+            <div class="bg-red-500" id="history">
+                <p>Past search history</p>
+            </div>
+        </div>
+        <div class="flex-auto rounded border-2 col-span-3" id="right-col">
+            <div class="bg-orange-400" id="today">
+                <h3>City Name and Date</h3>
+                <p>Temp</p>
+                <p>Wind</p>
+                <p>Humidity</p>
+                <p>UV Index</p>
+            </div>
+            <div class="grid grid-cols-5 gap-2 bg-orange-500" id="forecast">
+                <h3 class="col-span-5">5-Day Forecast:</h3>
+                <div class="col-span-1 bg-green-200" id="day1">
+                    <h4>Date +1</h4>
+                    <p>Picture of Weather</p>
+                    <p>Temp</p>
+                    <p>Wind</p>
+                    <p>Humidity</p>
+                </div>
+                <div class="col-span-1 bg-green-300" id="day2">
+                    <h4>Date +2</h4>
+                    <p>Picture of Weather</p>
+                    <p>Temp</p>
+                    <p>Wind</p>
+                    <p>Humidity</p>
+                </div>
+                <div class="col-span-1 bg-green-400" id="day3">
+                    <h4>Date +3</h4>
+                    <p>Picture of Weather</p>
+                    <p>Temp</p>
+                    <p>Wind</p>
+                    <p>Humidity</p>
+                </div>
+                <div class="col-span-1 bg-green-500" id="day4">
+                    <h4>Date +4</h4>
+                    <p>Picture of Weather</p>
+                    <p>Temp</p>
+                    <p>Wind</p>
+                    <p>Humidity</p>
+                </div>
+                <div class="col-span-1 bg-green-600" id="day5">
+                    <h4>Date +5</h4>
+                    <p>Picture of Weather</p>
+                    <p>Temp</p>
+                    <p>Wind</p>
+                    <p>Humidity</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
+    <script src="./assets/js/script.js"></script>
+</body>
+
+</html>
