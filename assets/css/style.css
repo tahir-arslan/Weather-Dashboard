@@ -1,0 +1,148 @@
+body {
+    margin: 0;
+    background-color: gainsboro;
+}
+
+h1 {
+    margin: 0;
+    padding: 16px;
+    text-align: center;
+    background-color: #353535;
+    color: white;
+    font-family: sans-serif;
+}
+
+.handleCitySearch {
+    background-color: rgb(73, 133, 237);
+}
+
+h2 {
+    font-size: 20px;
+}
+
+h3 {
+    font-size: 12px;
+    font-weight: bold;
+}
+
+p {
+    font-size: 12px;
+}
+
+.flexContainer {
+    display: flex;
+    max-width: 950px;
+    margin: auto;
+}
+
+.searchColumn {
+    padding: 16px;
+    width: 200px;
+    border: 1 solid gray;
+}
+
+.searchColumn .searchHistoryContainer {
+    background-color: #e1e1e1;
+    border: 1px solid gray;
+    border-radius: 4px;
+    margin-top: 16px;
+}
+
+
+/* makes the dependency strict on first level*/
+
+
+/*On 11/4/20 found on https://flaviocopes.com/css-selectors */
+
+
+/* since I didn't know how to select certain elements*/
+
+.searchHistoryContainer>button {
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid gray;
+}
+
+
+/* represents the last element among a group of sibling elements*/
+
+
+/* On 11/4/20 found on https://developer.mozilla.org/en-US/docs/Web/CSS/:last-child*/
+
+
+/* since I didn't know how to select certain elements */
+
+.searchHistoryContainer>button:last-child {
+    border: none;
+}
+
+.searchColumn>input {
+    width: 132px;
+}
+
+.reportColumn {
+    padding: 16px;
+    flex: 1;
+}
+
+.todaysForecastContainer {
+    padding: 16px;
+    border: solid black 1px;
+    border-radius: 4px;
+}
+
+.forecastCardsContainer {
+    display: flex;
+}
+
+.forecastCard {
+    flex: 1;
+    padding: 8px;
+    background-color: rgb(73, 133, 237);
+    color: white;
+    border-radius: 4px;
+    margin: 0 8px;
+}
+
+.forecastCard:first-child {
+    margin-left: 0;
+}
+
+.forecastCard:last-child {
+    margin-right: 0;
+}
+
+.uv-favorable,
+.uv-moderate,
+.uv-extreme,
+.uv-undefined {
+    font-weight: bold;
+    padding: 4px;
+    border-radius: 4px;
+}
+
+
+/*< 4*/
+
+.uv-favorable {
+    background-color: rgb(43, 194, 43);
+}
+
+
+/*4-10*/
+
+.uv-moderate {
+    background-color: yellow;
+}
+
+
+/*>11*/
+
+.uv-extreme {
+    background-color: rgb(255, 148, 148);
+}
+
+.uv-undefined {
+    background-color: gray;
+}
