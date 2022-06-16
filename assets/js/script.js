@@ -1,14 +1,12 @@
-var inputCity = [""];
+// var inputCity = [""];
 var apiKey = "de107e5570d600069ddff98bb569bca2";
-var city = "toronto";
-var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + apiKey;
-
-fetch(queryURL)
+// var inputCity = "toronto";
+// var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + inputCity + "&appid=" + apiKey;
 
 //on page load display last searched city
 $(document).ready(function() {
     generateHistory();
-    let lastSearched = JSON.parse(localStorage.getItem("inputCity"));
+    let lastSearched = JSON.parse(localStorage.getItem("inputCity")) || [];
     if (lastSearched.length > 0) {
         // if localStorage has saved data, load most recent search
         let lastCity = lastSearched[lastSearched.length - 1];
@@ -19,7 +17,6 @@ $(document).ready(function() {
     // Manipulate city input and react on click
     $("#search-btn").on("click ", function(event) {
         event.preventDefault();
-        createQuery();
         var inputCity = $("#input-city").val();
         // get list of cities from localStorage, create empty array if data does not exist
         let cityArray = JSON.parse(localStorage.getItem("inputCity")) || [];
@@ -27,21 +24,20 @@ $(document).ready(function() {
         cityArray.push(inputCity);
         // save updated list of cities to localStorage
         localStorage.setItem("inputCity", JSON.stringify(cityArray));
-        console.log(cityArray);
         generateHistory();
+        createQuery();
     });
 
     //function to create history
     function generateHistory() {
         // get history from localStorage
         let cityHistory = JSON.parse(localStorage.getItem("inputCity"));
-        //if search history doesn't exist, then create .searchHistoryContainer
-        if (!$("#history").length && cityHistory.length) {
-            $(".searchColumn").append('<div class="searchHistoryContainer"></div>');
-        }
         //clear history
         $("#history").html("");
         //for loop to generate history
+        if (!cityHistory) {
+            cityHistory = [];
+        }
         for (let cityCounter = 0; cityCounter < cityHistory.length; cityCounter++) {
             let city = cityHistory[cityCounter];
             $("#history").append(
@@ -57,7 +53,7 @@ $(document).ready(function() {
 
     // create queryURL function depending on text input or history click
     function createQuery(city) {
-        let inputCity = city ? city : $("#citySearch").val();
+        let inputCity = city ? city : $("#input-city").val();
         //query1URL is Current Weather Data API + the city searched (inputCity) from the input field
         let query1URL = "https://api.openweathermap.org/data/2.5/weather?q=" + inputCity + "&units=imperial&appid=" + apiKey;
         // ajax call to get weather info based on city
