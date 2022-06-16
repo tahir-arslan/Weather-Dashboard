@@ -1,0 +1,73 @@
+body {
+    margin: 0;
+    background-color: white;
+}
+
+
+/* #history>button {
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid gray;
+} */
+
+.todaysForecastContainer {
+    padding: 16px;
+    border: solid black 1px;
+    border-radius: 4px;
+}
+
+.forecastCardsContainer {
+    display: flex;
+}
+
+.forecastCard {
+    flex: 1;
+    padding: 8px;
+    background-color: rgb(73, 133, 237);
+    color: white;
+    border-radius: 4px;
+    margin: 0 8px;
+}
+
+.forecastCard:first-child {
+    margin-left: 0;
+}
+
+.forecastCard:last-child {
+    margin-right: 0;
+}
+
+.uv-favorable,
+.uv-moderate,
+.uv-extreme,
+.uv-undefined {
+    font-weight: bold;
+    padding: 4px;
+    border-radius: 4px;
+}
+
+
+/*< 4*/
+
+.uv-favorable {
+    background-color: rgb(43, 194, 43);
+}
+
+
+/*4-10*/
+
+.uv-moderate {
+    background-color: yellow;
+}
+
+
+/*>11*/
+
+.uv-extreme {
+    background-color: rgb(255, 148, 148);
+}
+
+.uv-undefined {
+    background-color: gray;
+}
